@@ -374,49 +374,64 @@ export function HomePage() {
             </div>
           </Reveal>
 
-          {/* 2×2 modern capability tiles */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {secondaryServices.map((sec, idx) => {
-              const SecIcon = sec.icon;
-              return (
-                <Reveal key={idx}>
-                  <Link
-                    to={sec.link}
-                    className="group relative flex gap-0 overflow-hidden rounded-2xl border border-white/10 bg-[#0D1117] transition-all duration-300 hover:border-red-500/40"
-                  >
-                    {/* Left accent rail */}
-                    <div className="w-1 shrink-0 bg-white/5 group-hover:bg-red-600 transition-colors duration-300" />
+          <div className="grid gap-5 lg:grid-cols-12 lg:gap-6 lg:items-stretch">
+            {/* Left — image */}
+            <Reveal className="lg:col-span-5">
+              <div className="relative h-full min-h-[280px] lg:min-h-full overflow-hidden rounded-2xl border border-white/10">
+                <img
+                  src={processImg}
+                  alt="Shield Global technical capabilities"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07090C] via-[#07090C]/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-red-400 mb-1">
+                    Field-ready support
+                  </p>
+                  <p className="text-sm text-white/80 max-w-[240px] leading-relaxed">
+                    Certified crews and systems that keep critical operations running.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
 
-                    <div className="relative flex flex-1 flex-col sm:flex-row sm:items-center gap-5 p-5 sm:p-6">
-                      {/* Large ghost number */}
-                      <span className="pointer-events-none absolute right-4 top-3 font-display text-5xl sm:text-6xl font-bold text-white/[0.04] group-hover:text-red-500/10 transition-colors select-none">
-                        0{idx + 1}
-                      </span>
-
-                      <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-[#12171E] text-red-500 group-hover:scale-105 group-hover:border-red-500/40 transition-all duration-300">
-                        <SecIcon className="h-5 w-5" />
-                      </span>
-
-                      <div className="relative flex-1 min-w-0 pr-8">
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-red-500 mb-1 block">
+            {/* Right — 4 equal boxes */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {secondaryServices.map((sec, idx) => {
+                const SecIcon = sec.icon;
+                return (
+                  <Reveal key={idx}>
+                    <Link
+                      to={sec.link}
+                      className="group flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-[#0D1117] p-5 transition-all duration-300 hover:border-red-500/40 hover:-translate-y-0.5"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[#12171E] text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-colors">
+                          <SecIcon className="h-4.5 w-4.5" />
+                        </span>
+                        <span className="font-mono text-[10px] text-white/30 tracking-widest">
+                          0{idx + 1}
+                        </span>
+                      </div>
+                      <div className="mt-4 space-y-1.5">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-red-500">
                           {sec.badge}
                         </span>
-                        <h3 className="font-display text-lg sm:text-xl text-white group-hover:text-red-400 transition-colors">
+                        <h3 className="font-display text-base sm:text-lg text-white group-hover:text-red-400 transition-colors leading-snug">
                           {sec.title}
                         </h3>
-                        <p className="mt-1.5 text-xs sm:text-sm text-white/50 leading-relaxed line-clamp-2">
+                        <p className="text-xs text-white/50 leading-relaxed line-clamp-2">
                           {sec.desc}
                         </p>
                       </div>
-
-                      <span className="relative hidden sm:flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/30 group-hover:border-red-500/50 group-hover:text-red-400 group-hover:bg-red-500/10 transition-all">
-                        <ArrowUpRight className="h-4 w-4" />
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              );
-            })}
+                      <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-white/40 group-hover:text-red-400 transition-colors">
+                        Learn more <ArrowUpRight className="h-3 w-3" />
+                      </div>
+                    </Link>
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
