@@ -252,96 +252,79 @@ export function HomePage() {
       </section>
 
       {/* 2. KEY SERVICES – 5 MAIN PILLARS */}
-      <section id="key-services" className="relative py-20 lg:py-28 bg-[#0B0E12] border-b border-white/5 scroll-mt-24 overflow-hidden">
-        {/* subtle red glow */}
-        <div className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full bg-red-600/5 blur-[120px]" />
-
+      <section id="key-services" className="relative py-16 lg:py-20 bg-[#0B0E12] border-b border-white/5 scroll-mt-24">
         <div className="technical-container relative">
           <Reveal>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6">
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-px w-8 bg-red-500" />
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="h-px w-6 bg-red-500" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-500">01 / Our Expertise</span>
                 </div>
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-tight max-w-xl">
-                  Engineering and security solutions for demanding environments
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white leading-tight max-w-lg">
+                  Engineering solutions for demanding environments
                 </h2>
               </div>
-              <p className="max-w-sm text-sm text-white/55 leading-relaxed">
-                Integrated technical, engineering, and maintenance solutions built for industrial infrastructure across the UAE and beyond.
+              <p className="max-w-xs text-sm text-white/50 leading-relaxed">
+                Technical, engineering and maintenance solutions for industrial infrastructure across the UAE and beyond.
               </p>
             </div>
           </Reveal>
 
-          {/* Varied grid: first two larger on desktop */}
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
-            {mainPillars.map((pillar, index) => {
+          {/* Uniform compact 5-card grid */}
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {mainPillars.map((pillar) => {
               const Icon = pillar.icon;
-              // First two span 3 cols each (half width), rest span 2 cols (thirds)
-              const colSpan =
-                index < 2
-                  ? "lg:col-span-3"
-                  : "lg:col-span-2";
-
               return (
-                <Reveal key={pillar.number} className={`sm:col-span-1 ${colSpan}`}>
-                  <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0D1117] transition-all duration-300 hover:border-red-500/40 hover:shadow-xl hover:shadow-red-900/15 hover:-translate-y-1">
-                    <div className={`relative overflow-hidden ${index < 2 ? "aspect-[16/9]" : "aspect-[16/10]"}`}>
+                <Reveal key={pillar.number}>
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0D1117] transition-all duration-300 hover:border-red-500/40 hover:-translate-y-0.5">
+                    <div className="relative aspect-[4/3] overflow-hidden">
                       <img
                         loading="lazy"
                         src={pillar.image}
                         alt={pillar.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-75"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-70"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/40 to-transparent" />
-                      <div className="absolute top-4 left-4 flex items-center gap-2">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-md border border-white/15 bg-black/50 backdrop-blur-sm text-red-400 font-mono text-[11px] font-bold">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/50 to-transparent" />
+                      <div className="absolute top-2.5 left-2.5">
+                        <span className="flex h-6 w-6 items-center justify-center rounded border border-white/15 bg-black/40 text-red-400 font-mono text-[10px] font-bold">
                           {pillar.number}
                         </span>
                       </div>
-                      <div className="absolute top-4 right-4">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-md bg-red-600/90 text-white shadow-md">
-                          <Icon className="h-3.5 w-3.5" />
+                      <div className="absolute top-2.5 right-2.5">
+                        <span className="flex h-6 w-6 items-center justify-center rounded bg-red-600/90 text-white">
+                          <Icon className="h-3 w-3" />
                         </span>
-                      </div>
-                      <div className="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-widest text-red-400 font-semibold">
-                        {pillar.tagline}
                       </div>
                     </div>
 
-                    <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
-                      <div className="space-y-2.5">
-                        <h3 className="font-display text-xl sm:text-2xl text-white group-hover:text-red-400 transition-colors">
+                    <div className="flex flex-1 flex-col justify-between p-4">
+                      <div className="space-y-1.5">
+                        <p className="text-[9px] font-mono uppercase tracking-wider text-red-400/80">
+                          {pillar.tagline}
+                        </p>
+                        <h3 className="font-display text-base text-white group-hover:text-red-400 transition-colors leading-snug">
                           {pillar.title}
                         </h3>
-                        <p className="text-xs sm:text-sm leading-relaxed text-white/55 line-clamp-2">
+                        <p className="text-[11px] leading-relaxed text-white/50 line-clamp-2">
                           {pillar.desc}
                         </p>
-                        <div className="pt-2 space-y-1">
-                          {pillar.features.slice(0, 3).map((feat, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-[11px] text-white/70">
-                              <span className="h-1 w-1 rounded-full bg-red-500 shrink-0" />
-                              <span>{feat}</span>
-                            </div>
-                          ))}
-                        </div>
                       </div>
 
-                      <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                      <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between">
                         <Link
                           to="/services"
                           hash={pillar.slug}
-                          className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-white/80 hover:text-red-400 transition-colors"
+                          className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-white/70 hover:text-red-400 transition-colors"
                         >
-                          Explore <ArrowUpRight className="h-3.5 w-3.5" />
+                          Explore <ArrowUpRight className="h-3 w-3" />
                         </Link>
                         <QuoteModal defaultService={pillar.title}>
                           <button
                             type="button"
-                            className="text-[11px] font-mono uppercase tracking-wider text-red-500 hover:text-red-400 font-medium"
+                            className="text-[10px] font-mono uppercase tracking-wider text-red-500 hover:text-red-400"
                           >
-                            Get Quote
+                            Quote
                           </button>
                         </QuoteModal>
                       </div>
@@ -355,7 +338,7 @@ export function HomePage() {
       </section>
 
       {/* 3. SECONDARY SPECIALIZED TECHNICAL CAPABILITIES */}
-      <section className="py-20 lg:py-28 bg-[#07090C] border-b border-white/5">
+      <section className="py-16 lg:py-20 bg-[#07090C] border-b border-white/5">
         <div className="technical-container">
           <Reveal>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -412,7 +395,7 @@ export function HomePage() {
       </section>
 
       {/* 4. WHY SHIELD GLOBAL & HSEQ EXCELLENCE */}
-      <section className="py-20 lg:py-28 bg-[#0B0E12] text-white">
+      <section className="py-16 lg:py-20 bg-[#0B0E12] text-white">
         <div className="technical-container">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             <div className="space-y-6 lg:col-span-7">
@@ -496,7 +479,7 @@ export function HomePage() {
       </section>
 
       {/* 5. CALL TO ACTION */}
-      <section className="relative py-20 lg:py-28 bg-[#07090C] overflow-hidden">
+      <section className="relative py-16 lg:py-20 bg-[#07090C] overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(208,0,0,0.12),transparent_65%)]" />
         <div className="technical-container relative">
           <Reveal>
