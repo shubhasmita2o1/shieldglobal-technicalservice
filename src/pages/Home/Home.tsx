@@ -252,16 +252,18 @@ export function HomePage() {
       </section>
 
       {/* 2. KEY SERVICES – 5 MAIN PILLARS */}
-      <section id="key-services" className="relative py-16 lg:py-20 bg-[#0B0E12] border-b border-white/5 scroll-mt-24">
+      <section id="key-services" className="relative py-16 lg:py-22 bg-[#0B0E12] border-b border-white/5 scroll-mt-24 overflow-hidden">
+        <div className="pointer-events-none absolute top-0 right-0 h-[280px] w-[280px] rounded-full bg-red-600/5 blur-[100px]" />
+
         <div className="technical-container relative">
           <Reveal>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 pb-7">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="h-px w-6 bg-red-500" />
+                  <span className="h-px w-7 bg-red-500" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-500">01 / Our Expertise</span>
                 </div>
-                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white leading-tight max-w-lg">
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-[2.5rem] text-white leading-tight max-w-lg">
                   Engineering solutions for demanding environments
                 </h2>
               </div>
@@ -271,47 +273,60 @@ export function HomePage() {
             </div>
           </Reveal>
 
-          {/* Uniform compact 5-card grid */}
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {mainPillars.map((pillar) => {
+          {/* Varied grid — previous layout, scaled down */}
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+            {mainPillars.map((pillar, index) => {
               const Icon = pillar.icon;
+              const isFeatured = index < 2;
+              const colSpan = isFeatured ? "lg:col-span-3" : "lg:col-span-2";
+
               return (
-                <Reveal key={pillar.number}>
-                  <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0D1117] transition-all duration-300 hover:border-red-500/40 hover:-translate-y-0.5">
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                <Reveal key={pillar.number} className={`sm:col-span-1 ${colSpan}`}>
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0D1117] transition-all duration-300 hover:border-red-500/40 hover:shadow-lg hover:shadow-red-900/10 hover:-translate-y-0.5">
+                    <div className={`relative overflow-hidden ${isFeatured ? "aspect-[16/8]" : "aspect-[16/9]"}`}>
                       <img
                         loading="lazy"
                         src={pillar.image}
                         alt={pillar.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-70"
+                        className="h-full w-full object-cover transition-transform duration-600 group-hover:scale-105 opacity-75"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/50 to-transparent" />
-                      <div className="absolute top-2.5 left-2.5">
-                        <span className="flex h-6 w-6 items-center justify-center rounded border border-white/15 bg-black/40 text-red-400 font-mono text-[10px] font-bold">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/45 to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-md border border-white/15 bg-black/45 backdrop-blur-sm text-red-400 font-mono text-[10px] font-bold">
                           {pillar.number}
                         </span>
                       </div>
-                      <div className="absolute top-2.5 right-2.5">
-                        <span className="flex h-6 w-6 items-center justify-center rounded bg-red-600/90 text-white">
-                          <Icon className="h-3 w-3" />
+                      <div className="absolute top-3 right-3">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-md bg-red-600/90 text-white">
+                          <Icon className="h-3.5 w-3.5" />
                         </span>
+                      </div>
+                      <div className="absolute bottom-2.5 left-3 text-[9px] font-mono uppercase tracking-widest text-red-400/90 font-semibold">
+                        {pillar.tagline}
                       </div>
                     </div>
 
-                    <div className="flex flex-1 flex-col justify-between p-4">
-                      <div className="space-y-1.5">
-                        <p className="text-[9px] font-mono uppercase tracking-wider text-red-400/80">
-                          {pillar.tagline}
-                        </p>
-                        <h3 className="font-display text-base text-white group-hover:text-red-400 transition-colors leading-snug">
+                    <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
+                      <div className="space-y-2">
+                        <h3 className={`font-display text-white group-hover:text-red-400 transition-colors leading-snug ${isFeatured ? "text-lg sm:text-xl" : "text-base sm:text-lg"}`}>
                           {pillar.title}
                         </h3>
-                        <p className="text-[11px] leading-relaxed text-white/50 line-clamp-2">
+                        <p className="text-[11px] sm:text-xs leading-relaxed text-white/50 line-clamp-2">
                           {pillar.desc}
                         </p>
+                        {isFeatured && (
+                          <div className="pt-1.5 space-y-1 hidden sm:block">
+                            {pillar.features.slice(0, 2).map((feat, idx) => (
+                              <div key={idx} className="flex items-center gap-1.5 text-[10px] text-white/60">
+                                <span className="h-1 w-1 rounded-full bg-red-500 shrink-0" />
+                                <span>{feat}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
 
-                      <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between">
+                      <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
                         <Link
                           to="/services"
                           hash={pillar.slug}
