@@ -355,77 +355,68 @@ export function HomePage() {
       {/* 3. SECONDARY SPECIALIZED TECHNICAL CAPABILITIES */}
       <section className="py-16 lg:py-20 bg-[#07090C] border-b border-white/5">
         <div className="technical-container">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-            {/* Left intro */}
-            <div className="lg:col-span-4">
-              <Reveal>
-                <div className="lg:sticky lg:top-28 space-y-5">
-                  <div className="flex items-center gap-3">
-                    <span className="h-px w-7 bg-red-500" />
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-500">
-                      02 / Capabilities
-                    </span>
-                  </div>
-                  <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white leading-tight">
-                    Specialized technical & support services
-                  </h2>
-                  <p className="text-sm text-white/50 leading-relaxed max-w-sm">
-                    Certified fabrication, technical secondment, and rapid mobilization supporting our core engineering pillars.
-                  </p>
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-red-500 hover:text-red-400 transition-colors pt-2"
-                  >
-                    View all services <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+          <Reveal>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="h-px w-7 bg-red-500" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-500">
+                    02 / Capabilities
+                  </span>
                 </div>
-              </Reveal>
+                <h2 className="font-display text-2xl sm:text-3xl text-white leading-tight max-w-md">
+                  Specialized technical support
+                </h2>
+              </div>
+              <p className="max-w-xs text-sm text-white/45 leading-relaxed">
+                Fabrication, manpower, mobilisation and HSEQ — supporting every project phase.
+              </p>
             </div>
+          </Reveal>
 
-            {/* Right — modern stacked list */}
-            <div className="lg:col-span-8 space-y-3">
-              {secondaryServices.map((sec, idx) => {
-                const SecIcon = sec.icon;
-                return (
-                  <Reveal key={idx}>
-                    <Link
-                      to={sec.link}
-                      className="group relative flex items-start gap-5 sm:gap-6 rounded-xl border border-white/8 bg-[#0D1117]/60 px-5 py-5 sm:px-6 sm:py-6 transition-all duration-300 hover:border-red-500/35 hover:bg-[#0D1117] hover:shadow-[0_0_0_1px_rgba(208,0,0,0.15)]"
-                    >
-                      {/* Number */}
-                      <span className="hidden sm:flex font-mono text-xs text-white/25 group-hover:text-red-500/70 transition-colors pt-1 w-6 shrink-0">
+          {/* 2×2 modern capability tiles */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {secondaryServices.map((sec, idx) => {
+              const SecIcon = sec.icon;
+              return (
+                <Reveal key={idx}>
+                  <Link
+                    to={sec.link}
+                    className="group relative flex gap-0 overflow-hidden rounded-2xl border border-white/10 bg-[#0D1117] transition-all duration-300 hover:border-red-500/40"
+                  >
+                    {/* Left accent rail */}
+                    <div className="w-1 shrink-0 bg-white/5 group-hover:bg-red-600 transition-colors duration-300" />
+
+                    <div className="relative flex flex-1 flex-col sm:flex-row sm:items-center gap-5 p-5 sm:p-6">
+                      {/* Large ghost number */}
+                      <span className="pointer-events-none absolute right-4 top-3 font-display text-5xl sm:text-6xl font-bold text-white/[0.04] group-hover:text-red-500/10 transition-colors select-none">
                         0{idx + 1}
                       </span>
 
-                      {/* Icon */}
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#12171E] text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-all duration-300">
+                      <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-[#12171E] text-red-500 group-hover:scale-105 group-hover:border-red-500/40 transition-all duration-300">
                         <SecIcon className="h-5 w-5" />
                       </span>
 
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <span className="text-[10px] font-mono uppercase tracking-wider text-red-500/80">
-                            {sec.badge}
-                          </span>
-                        </div>
+                      <div className="relative flex-1 min-w-0 pr-8">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-red-500 mb-1 block">
+                          {sec.badge}
+                        </span>
                         <h3 className="font-display text-lg sm:text-xl text-white group-hover:text-red-400 transition-colors">
                           {sec.title}
                         </h3>
-                        <p className="mt-1.5 text-xs sm:text-sm text-white/50 leading-relaxed max-w-xl">
+                        <p className="mt-1.5 text-xs sm:text-sm text-white/50 leading-relaxed line-clamp-2">
                           {sec.desc}
                         </p>
                       </div>
 
-                      {/* Arrow */}
-                      <span className="hidden sm:flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/30 group-hover:border-red-500/40 group-hover:text-red-400 group-hover:bg-red-500/10 transition-all duration-300 mt-1">
+                      <span className="relative hidden sm:flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/30 group-hover:border-red-500/50 group-hover:text-red-400 group-hover:bg-red-500/10 transition-all">
                         <ArrowUpRight className="h-4 w-4" />
                       </span>
-                    </Link>
-                  </Reveal>
-                );
-              })}
-            </div>
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
