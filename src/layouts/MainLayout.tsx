@@ -10,7 +10,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col justify-between">
+    <div className="min-h-screen bg-[#FFFAF3] text-[#1A1A1A] flex flex-col justify-between">
       <QuoteModal open={quoteModalOpen} onOpenChange={setQuoteModalOpen} />
       <Header onQuoteOpen={() => setQuoteModalOpen(true)} />
       <AnimatePresence mode="wait">

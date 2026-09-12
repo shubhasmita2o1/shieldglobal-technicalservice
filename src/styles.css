@@ -65,41 +65,41 @@
 
 :root {
   --radius: 0.5rem;
-  /* Dark charcoal – matches logo */
-  --background: oklch(0.11 0.01 250);
-  --foreground: oklch(0.97 0.005 250);
-  --card: oklch(0.15 0.01 250);
-  --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.15 0.01 250);
-  --popover-foreground: oklch(0.97 0.005 250);
-  /* Shield red */
-  --primary: oklch(0.55 0.22 25);
-  --primary-foreground: oklch(0.98 0.01 25);
-  --secondary: oklch(0.22 0.01 250);
-  --secondary-foreground: oklch(0.9 0.01 250);
-  --muted: oklch(0.2 0.01 250);
-  --muted-foreground: oklch(0.65 0.015 250);
-  --accent: oklch(0.55 0.22 25);
-  --accent-foreground: oklch(0.98 0.01 25);
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 25);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.55 0.22 25);
-  --hero-foreground: oklch(0.97 0.005 250);
-  --chart-1: oklch(0.55 0.22 25);
+  /* Off-white / beige base */
+  --background: #FFFAF3;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  /* Logo red */
+  --primary: #C8102E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5EDE3;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F3EBE0;
+  --muted-foreground: #5C5C5C;
+  --accent: #C8102E;
+  --accent-foreground: #FFFFFF;
+  --destructive: #C8102E;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(26, 26, 26, 0.12);
+  --input: rgba(26, 26, 26, 0.12);
+  --ring: #C8102E;
+  --hero-foreground: #FFFFFF;
+  --chart-1: #C8102E;
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.13 0.01 250);
-  --sidebar-foreground: oklch(0.97 0.005 250);
-  --sidebar-primary: oklch(0.55 0.22 25);
-  --sidebar-primary-foreground: oklch(0.98 0.01 25);
-  --sidebar-accent: oklch(0.2 0.01 250);
-  --sidebar-accent-foreground: oklch(0.97 0.005 250);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.55 0.22 25);
+  --sidebar: #FFFAF3;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #C8102E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5EDE3;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: rgba(26, 26, 26, 0.12);
+  --sidebar-ring: #C8102E;
 }
 
 .dark {
