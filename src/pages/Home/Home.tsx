@@ -112,28 +112,32 @@ const secondaryServices = [
     title: "Welding & Fabrication",
     desc: "Certified structural steel, spool fabrication and coded welding (SMAW / GTAW / GMAW / FCAW) with NDT QA/QC.",
     icon: Layers,
-    link: "/services#welding-fabrication",
+    to: "/services" as const,
+    hash: "welding-fabrication",
   },
   {
     badge: "Manpower",
     title: "Technical Support",
     desc: "Engineering secondment, certified QA/QC inspectors, HSE officers and project-management resources.",
     icon: Users,
-    link: "/services#technical-support",
+    to: "/services" as const,
+    hash: "technical-support",
   },
   {
     badge: "Mobilisation",
     title: "Turnaround Support",
     desc: "Rapid mobilisation crews for planned shutdowns, emergency repairs and critical-path recovery.",
     icon: Truck,
-    link: "/services",
+    to: "/services" as const,
+    hash: undefined,
   },
   {
     badge: "HSEQ",
     title: "Quality & Safety",
     desc: "ISO 9001 / 14001 / 45001 aligned systems, Inspection Test Plans and full material traceability.",
     icon: ShieldCheck,
-    link: "/hse-quality",
+    to: "/hse-quality" as const,
+    hash: undefined,
   },
 ];
 
@@ -252,7 +256,7 @@ export function HomePage() {
       </section>
 
       {/* 2. KEY SERVICES – 5 MAIN PILLARS */}
-      <section id="key-services" className="relative py-16 lg:py-22 bg-[#FFFAF3] border-b border-black/5 scroll-mt-24 overflow-hidden">
+      <section id="key-services" className="relative py-16 lg:py-20 bg-[#FFFAF3] border-b border-black/5 scroll-mt-24 overflow-hidden">
         <div className="pointer-events-none absolute top-0 right-0 h-[280px] w-[280px] rounded-full bg-red-600/5 blur-[100px]" />
 
         <div className="technical-container relative">
@@ -288,7 +292,7 @@ export function HomePage() {
                         loading="lazy"
                         src={pillar.image}
                         alt={pillar.title}
-                        className="h-full w-full object-cover transition-transform duration-600 group-hover:scale-105 opacity-75"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-75"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-white via-white/45 to-transparent" />
                       <div className="absolute top-3 left-3">
@@ -388,7 +392,7 @@ export function HomePage() {
                   <p className="text-[10px] font-mono uppercase tracking-wider text-red-600 mb-1">
                     Field-ready support
                   </p>
-                  <p className="text-sm text-[#3A3A3A] max-w-[240px] leading-relaxed">
+                  <p className="text-sm text-white/80 max-w-[240px] leading-relaxed">
                     Certified crews and systems that keep critical operations running.
                   </p>
                 </div>
@@ -402,12 +406,13 @@ export function HomePage() {
                 return (
                   <Reveal key={idx}>
                     <Link
-                      to={sec.link}
+                      to={sec.to}
+                      hash={sec.hash}
                       className="group flex h-full flex-col justify-between rounded-2xl border border-black/10 bg-white p-5 transition-all duration-300 hover:border-red-600/50 hover:-translate-y-0.5"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-[#F5EDE3] text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-colors">
-                          <SecIcon className="h-4.5 w-4.5" />
+                          <SecIcon className="h-4 w-4" />
                         </span>
                         <span className="font-mono text-[10px] text-[#9A9A9A] tracking-widest">
                           0{idx + 1}
