@@ -355,56 +355,77 @@ export function HomePage() {
       {/* 3. SECONDARY SPECIALIZED TECHNICAL CAPABILITIES */}
       <section className="py-16 lg:py-20 bg-[#07090C] border-b border-white/5">
         <div className="technical-container">
-          <Reveal>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-px w-8 bg-red-500" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-500">02 / Capabilities</span>
-                </div>
-                <h2 className="font-display text-3xl sm:text-4xl text-white leading-tight max-w-lg">
-                  Specialized technical & support services
-                </h2>
-              </div>
-              <p className="max-w-sm text-sm text-white/55 leading-relaxed">
-                Certified fabrication, technical secondment, and rapid mobilization supporting our core engineering pillars.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {secondaryServices.map((sec, idx) => {
-              const SecIcon = sec.icon;
-              return (
-                <Reveal key={idx}>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            {/* Left intro */}
+            <div className="lg:col-span-4">
+              <Reveal>
+                <div className="lg:sticky lg:top-28 space-y-5">
+                  <div className="flex items-center gap-3">
+                    <span className="h-px w-7 bg-red-500" />
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-500">
+                      02 / Capabilities
+                    </span>
+                  </div>
+                  <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white leading-tight">
+                    Specialized technical & support services
+                  </h2>
+                  <p className="text-sm text-white/50 leading-relaxed max-w-sm">
+                    Certified fabrication, technical secondment, and rapid mobilization supporting our core engineering pillars.
+                  </p>
                   <Link
-                    to={sec.link}
-                    className="group flex h-full flex-col gap-5 rounded-2xl border border-white/10 bg-[#0D1117] p-6 transition-all duration-300 hover:border-red-500/40 hover:shadow-lg hover:shadow-red-900/10 hover:-translate-y-1"
+                    to="/services"
+                    className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-red-500 hover:text-red-400 transition-colors pt-2"
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-[#12171E] text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-colors">
+                    View all services <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right — modern stacked list */}
+            <div className="lg:col-span-8 space-y-3">
+              {secondaryServices.map((sec, idx) => {
+                const SecIcon = sec.icon;
+                return (
+                  <Reveal key={idx}>
+                    <Link
+                      to={sec.link}
+                      className="group relative flex items-start gap-5 sm:gap-6 rounded-xl border border-white/8 bg-[#0D1117]/60 px-5 py-5 sm:px-6 sm:py-6 transition-all duration-300 hover:border-red-500/35 hover:bg-[#0D1117] hover:shadow-[0_0_0_1px_rgba(208,0,0,0.15)]"
+                    >
+                      {/* Number */}
+                      <span className="hidden sm:flex font-mono text-xs text-white/25 group-hover:text-red-500/70 transition-colors pt-1 w-6 shrink-0">
+                        0{idx + 1}
+                      </span>
+
+                      {/* Icon */}
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#12171E] text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-all duration-300">
                         <SecIcon className="h-5 w-5" />
                       </span>
-                      <span className="text-[10px] font-mono text-white/35 tracking-widest">0{idx + 1}</span>
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-red-500 mb-2">
-                        {sec.badge}
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-red-500/80">
+                            {sec.badge}
+                          </span>
+                        </div>
+                        <h3 className="font-display text-lg sm:text-xl text-white group-hover:text-red-400 transition-colors">
+                          {sec.title}
+                        </h3>
+                        <p className="mt-1.5 text-xs sm:text-sm text-white/50 leading-relaxed max-w-xl">
+                          {sec.desc}
+                        </p>
                       </div>
-                      <h3 className="font-display text-xl text-white group-hover:text-red-400 transition-colors">
-                        {sec.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-white/55">
-                        {sec.desc}
-                      </p>
-                    </div>
-                    <div className="pt-4 border-t border-white/10 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-white/50 group-hover:text-red-400 transition-colors">
-                      Learn more <ArrowRight className="h-3.5 w-3.5" />
-                    </div>
-                  </Link>
-                </Reveal>
-              );
-            })}
+
+                      {/* Arrow */}
+                      <span className="hidden sm:flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/30 group-hover:border-red-500/40 group-hover:text-red-400 group-hover:bg-red-500/10 transition-all duration-300 mt-1">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
+                    </Link>
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
