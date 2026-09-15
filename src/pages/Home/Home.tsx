@@ -213,7 +213,7 @@ export function HomePage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white/25 bg-[#12161C]/5 text-white hover:bg-[#12161C] hover:text-black backdrop-blur-sm text-xs uppercase tracking-widest font-semibold px-7 py-6 rounded-lg"
+              className="border-white/25 bg-[#12161C]/5 text-white hover:bg-white hover:text-black backdrop-blur-sm text-xs uppercase tracking-widest font-semibold px-7 py-6 rounded-lg"
             >
               <Link to="/services">
                 Our Services <ArrowRight className="ml-2 h-4 w-4" />
