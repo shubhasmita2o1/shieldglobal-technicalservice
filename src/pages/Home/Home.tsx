@@ -213,7 +213,7 @@ export function HomePage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white/25 bg-white/5 text-white hover:bg-white hover:text-black backdrop-blur-sm text-xs uppercase tracking-widest font-semibold px-7 py-6 rounded-lg"
+              className="border-white/25 bg-[#12161C]/5 text-white hover:bg-[#12161C] hover:text-black backdrop-blur-sm text-xs uppercase tracking-widest font-semibold px-7 py-6 rounded-lg"
             >
               <Link to="/services">
                 Our Services <ArrowRight className="ml-2 h-4 w-4" />
@@ -233,8 +233,8 @@ export function HomePage() {
         </div>
 
         {/* Bottom Trust & Compliance Bar */}
-        <div className="relative z-10 border-t border-black/10 bg-black/60 backdrop-blur-md py-4">
-          <div className="technical-container grid grid-cols-2 gap-4 sm:grid-cols-4 text-[#4A4A4A] text-[10px] sm:text-xs font-mono uppercase tracking-[0.14em]">
+        <div className="relative z-10 border-t border-white/10 bg-black/60 backdrop-blur-md py-4">
+          <div className="technical-container grid grid-cols-2 gap-4 sm:grid-cols-4 text-white/70 text-[10px] sm:text-xs font-mono uppercase tracking-[0.14em]">
             <div className="flex items-center justify-center gap-2">
               <ShieldCheck className="h-4 w-4 text-red-500 shrink-0" />
               <span>ISO 9001 / 14001 / 45001</span>
@@ -256,7 +256,7 @@ export function HomePage() {
       </section>
 
       {/* 2. KEY SERVICES – 5 MAIN PILLARS */}
-      <section id="key-services" className="relative py-16 lg:py-20 bg-[#FFFAF3] border-b border-black/5 scroll-mt-24 overflow-hidden">
+      <section id="key-services" className="relative py-16 lg:py-20 bg-[#0A0C0F] border-b border-white/5 scroll-mt-24 overflow-hidden">
         <div className="pointer-events-none absolute top-0 right-0 h-[280px] w-[280px] rounded-full bg-red-600/5 blur-[100px]" />
 
         <div className="technical-container relative">
@@ -267,11 +267,11 @@ export function HomePage() {
                   <span className="h-px w-7 bg-red-500" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-500">01 / Our Expertise</span>
                 </div>
-                <h2 className="font-display text-2xl sm:text-3xl lg:text-[2.5rem] text-[#1A1A1A] leading-tight max-w-lg">
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-[2.5rem] text-white leading-tight max-w-lg">
                   Engineering solutions for demanding environments
                 </h2>
               </div>
-              <p className="max-w-xs text-sm text-[#5C5C5C] leading-relaxed">
+              <p className="max-w-xs text-sm text-white/55 leading-relaxed">
                 Technical, engineering and maintenance solutions for industrial infrastructure across the UAE and beyond.
               </p>
             </div>
@@ -286,7 +286,7 @@ export function HomePage() {
 
               return (
                 <Reveal key={pillar.number} className={`sm:col-span-1 ${colSpan}`}>
-                  <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-black/10 bg-white transition-all duration-300 hover:border-red-600/50 hover:shadow-lg hover:shadow-red-600/10 hover:-translate-y-0.5">
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#12161C] transition-all duration-300 hover:border-red-500/40 hover:shadow-lg hover:shadow-red-600/10 hover:-translate-y-0.5">
                     <div className={`relative overflow-hidden ${isFeatured ? "aspect-[16/8]" : "aspect-[16/9]"}`}>
                       <img
                         loading="lazy"
@@ -296,7 +296,7 @@ export function HomePage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-white via-white/45 to-transparent" />
                       <div className="absolute top-3 left-3">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-md border border-black/10 bg-black/45 backdrop-blur-sm text-red-600 font-mono text-[10px] font-bold">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-md border border-white/10 bg-black/45 backdrop-blur-sm text-red-500 font-mono text-[10px] font-bold">
                           {pillar.number}
                         </span>
                       </div>
@@ -305,23 +305,23 @@ export function HomePage() {
                           <Icon className="h-3.5 w-3.5" />
                         </span>
                       </div>
-                      <div className="absolute bottom-2.5 left-3 text-[9px] font-mono uppercase tracking-widest text-red-600/90 font-semibold">
+                      <div className="absolute bottom-2.5 left-3 text-[9px] font-mono uppercase tracking-widest text-red-500/90 font-semibold">
                         {pillar.tagline}
                       </div>
                     </div>
 
                     <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
                       <div className="space-y-2">
-                        <h3 className={`font-display text-[#1A1A1A] group-hover:text-red-600 transition-colors leading-snug ${isFeatured ? "text-lg sm:text-xl" : "text-base sm:text-lg"}`}>
+                        <h3 className={`font-display text-white group-hover:text-red-400 transition-colors leading-snug ${isFeatured ? "text-lg sm:text-xl" : "text-base sm:text-lg"}`}>
                           {pillar.title}
                         </h3>
-                        <p className="text-[11px] sm:text-xs leading-relaxed text-[#5C5C5C] line-clamp-2">
+                        <p className="text-[11px] sm:text-xs leading-relaxed text-white/55 line-clamp-2">
                           {pillar.desc}
                         </p>
                         {isFeatured && (
                           <div className="pt-1.5 space-y-1 hidden sm:block">
                             {pillar.features.slice(0, 2).map((feat, idx) => (
-                              <div key={idx} className="flex items-center gap-1.5 text-[10px] text-[#5C5C5C]">
+                              <div key={idx} className="flex items-center gap-1.5 text-[10px] text-white/55">
                                 <span className="h-1 w-1 rounded-full bg-red-500 shrink-0" />
                                 <span>{feat}</span>
                               </div>
@@ -330,18 +330,18 @@ export function HomePage() {
                         )}
                       </div>
 
-                      <div className="mt-4 pt-3 border-t border-black/10 flex items-center justify-between">
+                      <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
                         <Link
                           to="/services"
                           hash={pillar.slug}
-                          className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#4A4A4A] hover:text-red-600 transition-colors"
+                          className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-white/60 hover:text-red-400 transition-colors"
                         >
                           Explore <ArrowUpRight className="h-3 w-3" />
                         </Link>
                         <QuoteModal defaultService={pillar.title}>
                           <button
                             type="button"
-                            className="text-[10px] font-mono uppercase tracking-wider text-red-500 hover:text-red-600"
+                            className="text-[10px] font-mono uppercase tracking-wider text-red-500 hover:text-red-400"
                           >
                             Quote
                           </button>
@@ -357,7 +357,7 @@ export function HomePage() {
       </section>
 
       {/* 3. SECONDARY SPECIALIZED TECHNICAL CAPABILITIES */}
-      <section className="py-16 lg:py-20 bg-[#F5EDE3] border-b border-black/5">
+      <section className="py-16 lg:py-20 bg-[#0E1116] border-b border-white/5">
         <div className="technical-container">
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
@@ -368,11 +368,11 @@ export function HomePage() {
                     02 / Capabilities
                   </span>
                 </div>
-                <h2 className="font-display text-2xl sm:text-3xl text-[#1A1A1A] leading-tight max-w-md">
+                <h2 className="font-display text-2xl sm:text-3xl text-white leading-tight max-w-md">
                   Specialized technical support
                 </h2>
               </div>
-              <p className="max-w-xs text-sm text-[#6B6B6B] leading-relaxed">
+              <p className="max-w-xs text-sm text-white/50 leading-relaxed">
                 Fabrication, manpower, mobilisation and HSEQ — supporting every project phase.
               </p>
             </div>
@@ -381,7 +381,7 @@ export function HomePage() {
           <div className="grid gap-5 lg:grid-cols-12 lg:gap-6 lg:items-stretch">
             {/* Left — image */}
             <Reveal className="lg:col-span-5">
-              <div className="relative h-full min-h-[280px] lg:min-h-full overflow-hidden rounded-2xl border border-black/10">
+              <div className="relative h-full min-h-[280px] lg:min-h-full overflow-hidden rounded-2xl border border-white/10">
                 <img
                   src={processImg}
                   alt="Shield Global technical capabilities"
@@ -389,7 +389,7 @@ export function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#07090C]/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-                  <p className="text-[10px] font-mono uppercase tracking-wider text-red-600 mb-1">
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-red-500 mb-1">
                     Field-ready support
                   </p>
                   <p className="text-sm text-white/80 max-w-[240px] leading-relaxed">
@@ -408,13 +408,13 @@ export function HomePage() {
                     <Link
                       to={sec.to}
                       hash={sec.hash}
-                      className="group flex h-full flex-col justify-between rounded-2xl border border-black/10 bg-white p-5 transition-all duration-300 hover:border-red-600/50 hover:-translate-y-0.5"
+                      className="group flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-[#12161C] p-5 transition-all duration-300 hover:border-red-500/40 hover:-translate-y-0.5"
                     >
                       <div className="flex items-start justify-between gap-3">
-                        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-[#F5EDE3] text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-colors">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[#0E1116] text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-colors">
                           <SecIcon className="h-4 w-4" />
                         </span>
-                        <span className="font-mono text-[10px] text-[#9A9A9A] tracking-widest">
+                        <span className="font-mono text-[10px] text-white/35 tracking-widest">
                           0{idx + 1}
                         </span>
                       </div>
@@ -422,14 +422,14 @@ export function HomePage() {
                         <span className="text-[10px] font-mono uppercase tracking-wider text-red-500">
                           {sec.badge}
                         </span>
-                        <h3 className="font-display text-base sm:text-lg text-[#1A1A1A] group-hover:text-red-600 transition-colors leading-snug">
+                        <h3 className="font-display text-base sm:text-lg text-white group-hover:text-red-400 transition-colors leading-snug">
                           {sec.title}
                         </h3>
-                        <p className="text-xs text-[#5C5C5C] leading-relaxed line-clamp-2">
+                        <p className="text-xs text-white/55 leading-relaxed line-clamp-2">
                           {sec.desc}
                         </p>
                       </div>
-                      <div className="mt-4 pt-3 border-t border-black/10 flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[#8A8A8A] group-hover:text-red-600 transition-colors">
+                      <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-white/40 group-hover:text-red-400 transition-colors">
                         Learn more <ArrowUpRight className="h-3 w-3" />
                       </div>
                     </Link>
@@ -442,7 +442,7 @@ export function HomePage() {
       </section>
 
       {/* 4. WHY SHIELD GLOBAL & HSEQ EXCELLENCE */}
-      <section className="py-14 lg:py-16 bg-[#FFFAF3] text-[#1A1A1A]">
+      <section className="py-14 lg:py-16 bg-[#0A0C0F] text-white">
         <div className="technical-container">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-10">
             <div className="space-y-4 lg:col-span-7">
@@ -452,32 +452,32 @@ export function HomePage() {
                   HSEQ & Precision Standards
                 </span>
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl leading-tight text-[#1A1A1A]">
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl leading-tight text-white">
                 Rigorous Safety Culture.{" "}
                 <span className="text-red-500">Zero-Compromise Quality.</span>
               </h2>
-              <p className="text-sm leading-relaxed text-[#5C5C5C] max-w-xl">
+              <p className="text-sm leading-relaxed text-white/55 max-w-xl">
                 Every project executed by Shield Global Technical Services LLC adheres
                 strictly to international ISO standards and regional regulatory requirements.
                 Full transparency through ITPs, MTCs, and certified QA/QC oversight.
               </p>
 
               <div className="grid gap-3 pt-1 sm:grid-cols-3">
-                <div className="rounded-lg border border-black/10 bg-white px-3.5 py-3">
+                <div className="rounded-lg border border-white/10 bg-[#12161C] px-3.5 py-3">
                   <div className="font-display text-lg text-red-500">ISO 9001</div>
-                  <div className="text-[10px] text-[#6B6B6B] uppercase tracking-wider mt-1">
+                  <div className="text-[10px] text-white/50 uppercase tracking-wider mt-1">
                     Quality Management
                   </div>
                 </div>
-                <div className="rounded-lg border border-black/10 bg-white px-3.5 py-3">
+                <div className="rounded-lg border border-white/10 bg-[#12161C] px-3.5 py-3">
                   <div className="font-display text-lg text-red-500">ISO 45001</div>
-                  <div className="text-[10px] text-[#6B6B6B] uppercase tracking-wider mt-1">
+                  <div className="text-[10px] text-white/50 uppercase tracking-wider mt-1">
                     Health & Safety
                   </div>
                 </div>
-                <div className="rounded-lg border border-black/10 bg-white px-3.5 py-3">
+                <div className="rounded-lg border border-white/10 bg-[#12161C] px-3.5 py-3">
                   <div className="font-display text-lg text-red-500">ISO 14001</div>
-                  <div className="text-[10px] text-[#6B6B6B] uppercase tracking-wider mt-1">
+                  <div className="text-[10px] text-white/50 uppercase tracking-wider mt-1">
                     Environmental
                   </div>
                 </div>
@@ -497,7 +497,7 @@ export function HomePage() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-black/15 bg-transparent text-[#1A1A1A] hover:bg-black/5 border-black/15 rounded-lg px-5 py-5 text-[11px] uppercase tracking-widest font-semibold"
+                  className="border-white/15 bg-transparent text-white hover:bg-white/5 border-white/15 rounded-lg px-5 py-5 text-[11px] uppercase tracking-widest font-semibold"
                 >
                   <Link to="/about">About Our Leadership</Link>
                 </Button>
@@ -505,16 +505,16 @@ export function HomePage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="relative overflow-hidden rounded-xl border border-black/10 bg-white">
+              <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#12161C]">
                 <img
                   src={qualityImg}
                   alt="Quality assurance inspection and dimensional verification"
                   className="aspect-[16/11] w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between border-t border-black/10 bg-black/40 px-4 py-3 text-[11px] font-mono backdrop-blur-sm">
-                  <span className="text-[#4A4A4A]">Shield Global QA/QC</span>
-                  <span className="text-red-600 flex items-center gap-1.5">
+                <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between border-t border-white/10 bg-black/40 px-4 py-3 text-[11px] font-mono backdrop-blur-sm">
+                  <span className="text-white/60">Shield Global QA/QC</span>
+                  <span className="text-red-500 flex items-center gap-1.5">
                     <ShieldCheck className="h-3.5 w-3.5" /> 100% Traceability
                   </span>
                 </div>
@@ -525,7 +525,7 @@ export function HomePage() {
       </section>
 
       {/* 5. CALL TO ACTION */}
-      <section className="relative py-16 lg:py-20 bg-[#F5EDE3] overflow-hidden">
+      <section className="relative py-16 lg:py-20 bg-[#0E1116] overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(208,0,0,0.12),transparent_65%)]" />
         <div className="technical-container relative">
           <Reveal>
@@ -537,11 +537,11 @@ export function HomePage() {
                 </span>
                 <span className="h-px w-8 bg-red-500" />
               </div>
-              <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-[#1A1A1A] leading-tight">
+              <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-white leading-tight">
                 Ready to build a more{" "}
                 <span className="text-red-500">secure future?</span>
               </h2>
-              <p className="text-sm sm:text-base text-[#5C5C5C] max-w-xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-base text-white/55 max-w-xl mx-auto leading-relaxed">
                 Contact Shield Global Technical Services LLC for competitive bids,
                 project proposals, and technical consultations across the UAE and Gulf region.
               </p>
@@ -558,7 +558,7 @@ export function HomePage() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-black/15 bg-transparent text-[#1A1A1A] hover:bg-black/5 border-black/15 px-8 py-6 text-xs uppercase tracking-widest font-semibold rounded-lg"
+                  className="border-white/15 bg-transparent text-white hover:bg-white/5 border-white/15 px-8 py-6 text-xs uppercase tracking-widest font-semibold rounded-lg"
                 >
                   <Link to="/contact">Contact Technical Desk</Link>
                 </Button>
